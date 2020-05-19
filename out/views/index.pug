@@ -1,0 +1,18 @@
+mixin convert(id, text, link, style)
+    .convert(id=id style=style)
+        p= text
+        a.button(href=link) Get Started
+
+doctype html
+html
+    head
+        title Mikedrop
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel="stylesheet" href="/css/index.css")
+        link(rel="stylesheet" href="/css/animations.css")
+
+    body
+        .converts
+            +convert("spotify-to-deezer", "Convert a playlist from Spotify to Deezer", "/spotify", "animation: 1s ease-out 0s 1 slideInFromLeft;")
+            +convert("deezer-to-spotify", "Convert a playlist from Deezer to Spotify", "/deezer", "animation: 1s ease-out 0s 1 slideInFromRight;")

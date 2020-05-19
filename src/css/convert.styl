@@ -1,0 +1,69 @@
+convert-background(link, dark=.7)
+    background-size 200%
+    background-image linear-gradient(rgba(0, 0, 0, dark), rgba(0, 0, 0, dark)), url(link)
+
+h1
+    color white
+    filter drop-shadow(4px 4px 1px rgb(25, 25, 25))
+
+    margin-bottom 20px
+
+.convert
+    width 100vw
+    height 100vh
+
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+
+    .playlist
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+        text-align center
+        
+        a
+            img
+                width 200px
+                height 200px
+
+                filter drop-shadow(4px 4px 1px rgb(25, 25, 25))
+            img:hover
+                width 250px
+                height 250px
+
+    form
+        width 50%
+        height 100%
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+
+        input[name="playlist"], input[name="playlist_id"]
+            padding 10px
+
+            border-radius 25px
+            border-style none
+
+            font-size 150%
+            text-align center
+            color #333333
+
+        .button
+            margin-top 50px
+            font-size 150%
+
+        
+
+#spotify-to-deezer
+    convert-background('https://community.spotify.com/t5/image/serverpage/image-id/93405i4E2CF213EDFC2B53/image-size/large?v=1.0&px=999')
+    background-position-x 25%
+    background-position-y 25%
+
+#deezer-to-spotify
+    convert-background('http://www.deezer-blog.com/assets/sites/3/UPC-Deezer.jpg')
+    background-position-x -50px
+    background-position-y -50px

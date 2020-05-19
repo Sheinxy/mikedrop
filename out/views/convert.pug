@@ -1,0 +1,63 @@
+mixin convert(id, text)
+    .convert(id=id)
+        if get && get.token
+            form(method="post" style="animation: 1s ease-out 0s 1 slideInFromTop")
+                h1= text + " by Name"
+                // I will refactor this later
+                input(style="display: none" name="token" value=get.token)
+                input(type="text", name="playlist" placeholder="Playlist Name" maxlength="45")
+                button.button Submit
+            form(method="post" style="animation: 1s ease-out 0s 1 slideInFromBottom")
+                h1= text + " by ID"
+                // I will refactor this later
+                input(style="display: none" name="token" value=get.token) 
+                input(type="text", name="playlist_id" placeholder="Playlist ID" maxlength="45")
+                button.button Submit
+        else if post
+            .playlist#spotify(style="display: none; opacity: 0")
+                a#spotify-link(href="" style="display: none")
+                    img#spotify-image(src="")
+                h1 See on Spotify
+            .playlist#deezer(style="opacity: 0")
+                a#deezer-link(href="" style="display: none")
+                    img#deezer-image(src="")
+                h1 See on Deezer
+
+            h1#loading(style="font-size: 500%; position: absolute; transform: translateY(-25px); animation: 1s ease-out 0s 1 slideInFromTop;") Loading...
+        a.button(href="/") Back
+
+doctype html
+html
+    head
+        - const origin = get? get.origin : post? post.origin: "wrong method"
+        title Mikedrop - from #{origin[0].toUpperCase()}#{origin.slice(1)}
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap")
+        link(rel="stylesheet" href="/css/style.css")
+        link(rel="stylesheet" href="/css/convert.css")
+        link(rel="stylesheet" href="/css/animations.css")
+
+        if get && !get.token
+            if origin == "deezer"
+                // We need an access token before doing anything
+                -const scope = "playlist-modify-public%20playlist-modify-private"
+                script window.location.href = "https://accounts.spotify.com/authorize?client_id=#{get.client_id}&response_type=code&scope=#{scope}&redirect_uri=" + window.location.href
+            else if origin == "spotify"
+                -const perms = "basic_access,manage_library,delete_library"
+                script window.location.href = "https://connect.deezer.com/oauth/auth.php?app_id=#{get.client_id}&perms=#{perms}&redirect_uri=" + window.location.href
+    body
+        case origin
+            when "deezer"
+                +convert("deezer-to-spotify", "Convert from Deezer to Spotify")
+            when "spotify"
+                +convert("spotify-to-deezer", "Convert from Spotify to Deezer")
+            default
+                h1(style="color: white; text-align: center") Not found
+
+        if post
+            script(src="/js/convert.js")
+
+            if post.playlist_id
+                script create_from_id("#{origin}", "#{post.playlist_id}", "#{post.token}")
+            else
+                script create_from_name("#{origin}", "#{post.playlist}", "#{post.token}")
+        

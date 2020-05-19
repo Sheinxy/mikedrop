@@ -1,0 +1,49 @@
+.converts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.converts .convert {
+  padding: 50px;
+  width: 50vw;
+  height: 100vh;
+  font-size: 250%;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-5deg);
+}
+.converts .convert p {
+  width: 30vw;
+  filter: drop-shadow(4px 4px 1px #191919);
+}
+.converts .convert * {
+  transform: rotate(5deg);
+}
+.converts .convert:hover {
+  width: 100vw;
+}
+.converts #spotify-to-deezer {
+  background-size: 200%;
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://community.spotify.com/t5/image/serverpage/image-id/93405i4E2CF213EDFC2B53/image-size/large?v=1.0&px=999");
+}
+.converts #deezer-to-spotify {
+  background-size: 200%;
+  background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("http://www.deezer-blog.com/assets/sites/3/UPC-Deezer.jpg");
+  background-position-x: -50px;
+  background-position-y: -50px;
+}
+.converts #spotify-to-deezer:hover {
+  background-size: 200%;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("https://community.spotify.com/t5/image/serverpage/image-id/93405i4E2CF213EDFC2B53/image-size/large?v=1.0&px=999");
+}
+.converts #deezer-to-spotify:hover {
+  background-size: 200%;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("http://www.deezer-blog.com/assets/sites/3/UPC-Deezer.jpg");
+  background-position-x: -50px;
+  background-position-y: -50px;
+}

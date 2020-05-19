@@ -1,0 +1,30 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  font-family: 'Baloo 2', cursive;
+  transition: width 1s ease-out, height 1s ease-out, opacity 1s ease-out, background-image 1s ease-out;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #0a0a0a;
+}
+.button {
+  margin: 10px;
+  width: 15vw;
+  border-radius: 25px;
+  border-style: none;
+  background-color: #1db954;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 75%;
+}
+.button:hover {
+  cursor: pointer;
+  background-color: #2eca65;
+}
+.button:focus {
+  background-color: #0ca843;
+}

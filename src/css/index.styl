@@ -1,0 +1,57 @@
+convert-background(link, dark=.7)
+    background-size 200%
+    background-image linear-gradient(rgba(0, 0, 0, dark), rgba(0, 0, 0, dark)), url(link)
+
+.converts
+    display flex
+    flex-direction row
+    align-items center
+    justify-content center
+
+    .convert
+        padding 50px
+
+        width 50vw
+        height 100vh
+
+        font-size 250%
+        text-align center
+        color white
+        
+        
+        // I don't really know what I'm doing to be honest
+        display flex
+        flex-direction column
+        align-items center
+        justify-content center
+
+        transform rotate(-5deg)
+
+        p
+            width 30vw
+
+            filter drop-shadow(4px 4px 1px rgb(25, 25, 25))
+
+        *
+            transform rotate(5deg)
+        
+
+    .convert:hover
+        width 100vw
+
+
+    #spotify-to-deezer
+        convert-background('https://community.spotify.com/t5/image/serverpage/image-id/93405i4E2CF213EDFC2B53/image-size/large?v=1.0&px=999')
+                
+    #deezer-to-spotify
+        convert-background('http://www.deezer-blog.com/assets/sites/3/UPC-Deezer.jpg')
+        background-position-x -50px
+        background-position-y -50px
+        
+    #spotify-to-deezer:hover
+        convert-background('https://community.spotify.com/t5/image/serverpage/image-id/93405i4E2CF213EDFC2B53/image-size/large?v=1.0&px=999', .4)
+
+    #deezer-to-spotify:hover
+        convert-background('http://www.deezer-blog.com/assets/sites/3/UPC-Deezer.jpg', .4)
+        background-position-x -50px
+        background-position-y -50px

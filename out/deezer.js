@@ -49,13 +49,15 @@
 
   exports.search = function(query, search_type, limit = 5, offset = 0) {
     var response;
-    response = void 0;
+    response = {
+      data: []
+    };
     if (search_type !== "") {
       response = JSON.parse(sync("GET", `https://api.deezer.com/search/${search_type}?q=${escape(query.replace(/[^\x00-\x7F]/g, ''))}&limit=${limit}&index=${offset}`).getBody("utf8"));
     } else {
       response = JSON.parse(sync("GET", `https://api.deezer.com/search?q=${escape(query.replace(/[^\x00-\x7F]/g, ''))}&limit=${limit}&index=${offset}`).getBody("utf8"));
     }
-    return response.data;
+    return response.data || [];
   };
 
   exports.search_playlists = function(query, limit = 5, offset = 0) {

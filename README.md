@@ -1,3 +1,5 @@
+⚠️ THIS IS DEPRECATED AND NO LONGER MAINTAINED (duh)
+
 # Mikedrop
 ------------
 
